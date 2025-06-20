@@ -4,40 +4,7 @@ This is a cloud-native uptime monitoring system built specifically to demonstrat
 
 ## 🧠 System Architecture
 
-+-------------------------+
-|   User/Git Push         |
-+-----------+-------------+
-            |
-            v
-+-------------------------+
-|    Google Cloud Build   |  <-- CI/CD: builds + deploys
-+-----------+-------------+
-            |
-            v
-+-------------------------+
-|  Container Image (Docker) |
-+-----------+-------------+
-            |
-            v
-+-------------------------+
-|    Google Kubernetes Engine (GKE)   |
-|  - Flask App in Pod                 |
-|  - Exposes /metrics                 |
-+-----------+-------------+
-            |
-            v
-+-------------------------+
-|  LoadBalancer Service (GKE)        |
-|  - EXTERNAL-IP for public access   |
-+-----------+-------------+
-            |
-            v
-+-------------------------+
-|   Cloud Monitoring (Ops Agent)     |
-|  - Scrapes /metrics                |
-|  - Stores time-series              |
-|  - Triggers alert if site is down  |
-+-------------------------+
+![Editor _ Mermaid Chart-2025-06-20-092828](https://github.com/user-attachments/assets/71b89dac-9422-4c9c-8480-82b06b7351b3)
 
 🟢  Metric: uptime_loblaw_status
 🟢  Status: 1 = Up | 0 = Down

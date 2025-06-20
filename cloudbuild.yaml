@@ -18,4 +18,4 @@ steps:
     - 'CLOUDSDK_CONTAINER_CLUSTER=uptime-cluster'
 
 images:
-- 'gcr.io/$PROJECT_ID/uptime-checker'
+- 'gcr.io/eternal-concept-462204-s3/uptime-checker'

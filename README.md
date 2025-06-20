@@ -35,7 +35,7 @@ This is a cloud-native uptime monitoring system built specifically to demonstrat
 Example output:
 ![checking loblaws](https://github.com/user-attachments/assets/a3d14db0-802d-47c7-b1bd-b60391c1d9b1)
 
-![1st](https://github.com/user-attachments/assets/fd947376-0576-4d30-b7e8-fd194bdacbf6)
+![loblaws_website_up](https://github.com/user-attachments/assets/3ea4cd90-4338-4b85-a614-260bb48d1086)
 
 ![Screenshot (2893)](https://github.com/user-attachments/assets/aeeacb62-1869-4ab8-aa83-617cc844dc26)
 

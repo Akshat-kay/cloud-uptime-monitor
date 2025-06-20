@@ -1,0 +1,21 @@
+steps:
+# Step 1: Build Docker image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/eternal-concept-462204-s3/uptime-checker', '.']
+
+# Step 2: Push Docker image to GCR
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/eternal-concept-462204-s3/uptime-checker']
+
+# Step 3: Deploy to Kubernetes
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+    - 'apply'
+    - '-f'
+    - 'k8s/'
+  env:
+    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=uptime-cluster'
+
+images:
+- 'gcr.io/$PROJECT_ID/uptime-checker'

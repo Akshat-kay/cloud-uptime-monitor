@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: uptime-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: uptime-checker
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000

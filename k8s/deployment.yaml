@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uptime-checker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uptime-checker
+  template:
+    metadata:
+      labels:
+        app: uptime-checker
+    spec:
+      containers:
+      - name: uptime-checker
+        image: gcr.io/eternal-concept-462204-s3/uptime-checker
+        ports:
+        - containerPort: 5000

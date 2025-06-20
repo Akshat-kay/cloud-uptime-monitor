@@ -2,11 +2,47 @@
 
 This is a cloud-native uptime monitoring system built specifically to demonstrate platform reliability and observability for the **Site Reliability Engineer I (Platform Engineering)** role at **Loblaw Companies Ltd.**
 
-<p align="center">
-  <img src="docs/architecture.png" width="600" alt="Architecture Diagram">
-</p>
+## 🧠 System Architecture
 
----
++-------------------------+
+|   User/Git Push         |
++-----------+-------------+
+            |
+            v
++-------------------------+
+|    Google Cloud Build   |  <-- CI/CD: builds + deploys
++-----------+-------------+
+            |
+            v
++-------------------------+
+|  Container Image (Docker) |
++-----------+-------------+
+            |
+            v
++-------------------------+
+|    Google Kubernetes Engine (GKE)   |
+|  - Flask App in Pod                 |
+|  - Exposes /metrics                 |
++-----------+-------------+
+            |
+            v
++-------------------------+
+|  LoadBalancer Service (GKE)        |
+|  - EXTERNAL-IP for public access   |
++-----------+-------------+
+            |
+            v
++-------------------------+
+|   Cloud Monitoring (Ops Agent)     |
+|  - Scrapes /metrics                |
+|  - Stores time-series              |
+|  - Triggers alert if site is down  |
++-------------------------+
+
+🟢  Metric: uptime_loblaw_status
+🟢  Status: 1 = Up | 0 = Down
+🟢  Alert: if 0 for 1+ minute → Notify via Email/SMS/Slack
+
 
 ## 🔍 What It Does
 
